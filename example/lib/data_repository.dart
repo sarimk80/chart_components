@@ -82,12 +82,7 @@ class DataRepository {
   }
 
   static Color getColor(double value) {
-    if (value < 2) {
-      return Colors.amber.shade300;
-    } else if (value < 4) {
-      return Colors.amber.shade600;
-    } else
-      return Colors.amber.shade900;
+    return Colors.green.withAlpha(300);
   }
 
   static Color getDayColor(int day) {
@@ -97,24 +92,13 @@ class DataRepository {
       return Colors.indigo.shade50;
   }
 
-  static Icon getIcon(double value) {
-    if (value < 1) {
-      return Icon(
-        Icons.star_border,
-        size: 24,
-        color: getColor(value),
-      );
-    } else if (value < 2) {
-      return Icon(
-        Icons.star_half,
-        size: 24,
-        color: getColor(value),
-      );
-    } else
-      return Icon(
-        Icons.star,
-        size: 24,
-        color: getColor(value),
-      );
+  static Widget getIcon(double value) {
+    return Container(
+      decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          image: DecorationImage(
+              image: NetworkImage(
+                  'https://fastly.picsum.photos/id/659/200/200.jpg?hmac=kFpdD3XTBGwPUAH1tD-AiWigstjIX8WGIcyySuVQIvE'))),
+    );
   }
 }

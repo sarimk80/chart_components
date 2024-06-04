@@ -22,7 +22,7 @@ class HomePage extends StatelessWidget {
               child: Text(
                 'Bar Chart + Calendar Grid',
                 textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.headline5,
+                style: Theme.of(context).textTheme.bodyMedium,
               ),
             ),
             SizedBox(

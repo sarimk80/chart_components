@@ -37,7 +37,7 @@ class _BarChartPageState extends State<BarChartPage> {
               margin: EdgeInsets.only(top: 16),
               child: Text(
                 'Walked km per day',
-                style: Theme.of(context).textTheme.headline5,
+                style: Theme.of(context).textTheme.bodyMedium,
               ),
             ),
             SizedBox(
@@ -50,7 +50,7 @@ class _BarChartPageState extends State<BarChartPage> {
                   margin: EdgeInsets.symmetric(horizontal: 64),
                   padding: EdgeInsets.all(16),
                   decoration: BoxDecoration(
-                    color: Theme.of(context).buttonColor,
+                    color: Theme.of(context).colorScheme.onPrimaryContainer,
                     shape: BoxShape.rectangle,
                     borderRadius: BorderRadius.all(Radius.circular(10)),
                   ),
@@ -58,7 +58,7 @@ class _BarChartPageState extends State<BarChartPage> {
                     children: <Widget>[
                       Text(
                         'January',
-                        style: Theme.of(context).textTheme.headline5,
+                        style: Theme.of(context).textTheme.bodyMedium,
                       ),
                       CalendarGrid(
                         year: 2020,
@@ -91,12 +91,13 @@ class _BarChartPageState extends State<BarChartPage> {
                   reverse: true,
                   getColor: DataRepository.getColor,
                   getIcon: DataRepository.getIcon,
+                  
                   barWidth: 42,
                   barSeparation: 12,
                   animationDuration: Duration(milliseconds: 1000),
                   animationCurve: Curves.easeInOutSine,
                   itemRadius: 10,
-                  iconHeight: 24,
+                  iconHeight: 34,
                   footerHeight: 24,
                   headerValueHeight: 16,
                   roundValuesOnText: false,

@@ -10,7 +10,7 @@ enum _Slot {
 }
 
 typedef BarCharGetColor = Color Function(double value);
-typedef BarCharGetIcon = Icon Function(double value);
+typedef BarCharGetWidget = Widget Function(double value);
 
 /// Bar chart component. Horizontally scrollable.
 /// Items can show the value and an icon on top, and a label on the footer.
@@ -35,7 +35,7 @@ class BarChart extends StatelessWidget {
   final BarCharGetColor getColor;
 
   /// Gets the icon to be displayed on top based on the bar value.
-  final BarCharGetIcon? getIcon;
+  final BarCharGetWidget? getIcon;
 
   /// Radius for the top of the bar.
   /// Default 10
@@ -227,7 +227,7 @@ class BarChart extends StatelessWidget {
 
 class _BarItem extends ImplicitlyAnimatedWidget {
   final BarCharGetColor getColor;
-  final BarCharGetIcon? getIcon;
+  final BarCharGetWidget? getIcon;
   final double heightFactor;
   final double width;
   final double value;
@@ -299,14 +299,15 @@ class _BarItemState extends AnimatedWidgetBaseState<_BarItem> {
           height: widget.headerValueHeight,
           width: widget.width,
           child: Text(
-            widget.hideValue || !widget.dislplayValue
-                ? ''
-                : (widget.roundValuesOnText
-                    ? widget.value.round().toString()
-                    : widget.value.toString()),
+            '',
+            // widget.hideValue || !widget.dislplayValue
+            //     ? ''
+            //     : (widget.roundValuesOnText
+            //         ? widget.value.round().toString()
+            //         : widget.value.toString()),
             textAlign: TextAlign.center,
             softWrap: false,
-            style: widget.valueStyle ?? Theme.of(context).textTheme.caption,
+            style: widget.valueStyle ?? Theme.of(context).textTheme.bodySmall,
           ),
         ),
         Flexible(
@@ -330,10 +331,11 @@ class _BarItemState extends AnimatedWidgetBaseState<_BarItem> {
           width: widget.width,
           height: widget.footerHeight,
           child: Text(
-            widget.label == null ? '' : widget.label!,
+            '',
+            //widget.label == null ? '' : widget.label!,
             softWrap: false,
             textAlign: TextAlign.center,
-            style: widget.labelStyle ?? Theme.of(context).textTheme.subtitle1,
+            style: widget.labelStyle ?? Theme.of(context).textTheme.bodyMedium,
           ),
         ),
       ],
